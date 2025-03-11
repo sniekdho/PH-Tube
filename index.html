@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhTube</title>
+
+    <!-- Google Inter Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/71d4fc89aa.js" crossorigin="anonymous"></script>
+
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tailwind Customize Config CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Style Tag -->
+    <style>
+        .font-inter {
+            font-family: "Inter", "sans-serif";
+        }
+    </style>
+</head>
+
+<body class="font-inter">
+    <header class="container mx-auto">
+        <nav class="flex justify-between border-b border-slate-400 py-5">
+            <!-- Logo -->
+            <div>
+                <img src="./assets/Logo.png" alt="">
+            </div>
+
+            <!-- Sort -->
+            <div>
+                <button class="btn bg-gray-300">Sort by view</button>
+            </div>
+
+            <!-- Blog -->
+            <div>
+                <button class="btn bg-[rgb(255,31,61)] text-white">Blog</button>
+            </div>
+        </nav>
+    </header>
+
+</body>
+
+</html>
