@@ -20,7 +20,7 @@ function displayCategories(categories) {
     const categoryDiv = document.createElement("div");
 
     categoryDiv.innerHTML = `
-        <button onClick="loadCategoryVideo(${cat.category_id})" class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white">${cat.category}</button>
+        <button id="btn-${cat.category_id}" onClick="loadCategoryVideo(${cat.category_id})" class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white">${cat.category}</button>
         `;
 
     // append the element
@@ -32,7 +32,11 @@ function displayCategories(categories) {
 function loadVideos() {
   fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
     .then((response) => response.json())
-    .then((data) => displayVideos(data.videos));
+    .then((data) => {
+      removeActiveClass();
+      document.getElementById("btn-all").classList.add("active");
+      displayVideos(data.videos);
+    });
 }
 
 // displayVideos()
@@ -40,6 +44,16 @@ const displayVideos = (videos) => {
   const videoContainer = document.getElementById("video-container");
 
   videoContainer.innerHTML = "";
+
+  if (videos.length === 0) {
+    videoContainer.innerHTML = `
+    <div class="col-span-full text-center flex flex-col justify-center items-center py-20">
+      <img src="./assets/Icon.png" alt="">
+      <h1 class="text-2xl font-bold">Oops!! Sorry, There is no content here</h1>
+    </div>
+    `;
+    return;
+  }
 
   videos.forEach((video) => {
     const videoDiv = document.createElement("div");
@@ -80,7 +94,20 @@ const loadCategoryVideo = (id) => {
   const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayVideos(data.category));
+    .then((data) => {
+      removeActiveClass();
+      const clickedButton = document.getElementById(`btn-${id}`);
+      clickedButton.classList.add("active");
+      displayVideos(data.category);
+    });
 };
+
+// removeActiveClass()
+function removeActiveClass() {
+  const activeButtons = document.getElementsByClassName("active");
+  for (let btn of activeButtons) {
+    btn.classList.remove("active");
+  }
+}
 
 loadCategories();
