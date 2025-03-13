@@ -7,7 +7,9 @@ GET: Videos
 Endpoint: https://openapi.programming-hero.com/api/phero-tube/videos
 
 GET: Video based on Catagory [ params ]
+
 Endpoint : https://openapi.programming-hero.com/api/phero-tube/category/categoryId
+
 Example: https://openapi.programming-hero.com/api/phero-tube/category/1001
 
 GET: Video based on Title [ Query ]
