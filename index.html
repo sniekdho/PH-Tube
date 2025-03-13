@@ -72,7 +72,8 @@
     <!-- Category's Section -->
     <section id="category-container" class="container mx-auto flex justify-center gap-5 py-5">
         <div>
-            <button id="btn-all" onclick="loadVideos()" class="btn btn-sm">All</button>
+            <button id="btn-all" onclick="loadVideos()"
+                class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white">All</button>
         </div>
     </section>
 
@@ -83,6 +84,24 @@
             <h1 class="text-2xl font-bold">Oops!! Sorry, There is no content here</h1>
         </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="video_details.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+        <div class="modal-box">
+
+            <div id="video-details-container">
+
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <!-- Script Files -->
     <script src="./js/index.js"></script>
